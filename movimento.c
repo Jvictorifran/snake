@@ -50,4 +50,8 @@ int mover_cobra(snake *cobra, position *comida, int *pontos, int *game_over, int
         cobra->body[i] = cobra->body[i - 1];
     }
     
+
+    if (comida->x == cobra->body[0].x && comida->y == cobra->body[0].y){
+        cobra->tamanho += 1;
+    }
 }
