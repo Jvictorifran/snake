@@ -1,12 +1,11 @@
-#ifndef MOVIMENTO_H
-#define MOVIMENTO_H
-#include "libs.h"
-#include "snake.h"
+#ifndef MOVIMENTO_H  //abre o bloco para ser executado apenas uma vez pelo cmd
+#define MOVIMENTO_H //para mostrar que o arquivo ja foi incluso
 
-typedef struct{
-    int x, y;
-}position;
+#include <stdlib.h>
+#include <stdio.h>
+#include <ncurses.h>
+#include "estruturas.h"
 
-int mover_cobra(snake *cobra, position *comida, int *pontos, int *game_over, int *velocidade, char direcao);
+void movimenta__cobra(snake* cobra, char direção);
 
-#endif // MOVIMENTO_H
+#endif //fecha o bloco
