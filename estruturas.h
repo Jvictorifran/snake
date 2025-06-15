@@ -17,5 +17,7 @@ typedef struct snake{
     int tamanho;
 }snake;
 
+void movimenta__cobra(snake* cobra, char direção);
+void desenha_jogo();
 
 #endif //fecha o bloco
