@@ -13,7 +13,7 @@ typedef struct position{
 }position;
 
 typedef struct snake{
-    char body[MAX];
+    position body[MAX];
     int tamanho;
 }snake;
 
