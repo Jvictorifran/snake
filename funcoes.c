@@ -71,4 +71,8 @@ void desenha_cobra(snake* cobra){//sobre o desenho da cobra
     }
 }
 
+int comecobra(snake* cobra, position* comida){
+    return;
+}
+
 
