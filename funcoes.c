@@ -63,16 +63,22 @@ void desenha_cobra(snake* cobra){//sobre o desenho da cobra
                 }
             }
 
-            if(!desenhou){
-                printf(" ");
+            if(!desenhou){//onde nao foi desenhado
+                printf(" ");//desenha um espaço vazio
             }
         }
-        printf("\n");
+        printf("\n");//muda de linha
     }
 }
 
-int comecobra(snake* cobra, position* comida){
-    return;
+int comecobra(snake* cobra, position* comida){//verifica se a cobra comeu a comida, se sim retorna um se nao retorna 0
+    
+    if(cobra->body[0].x == comida->x && cobra->body[0].y == comida->y){ //caso a comida esteja no mesmo local da cobra 
+        cobra->tamanho += 1;
+        return 1;//retorne 1
+    }
+
+    return 0;//se nao retorna 0
 }
 
 
