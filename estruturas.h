@@ -20,9 +20,10 @@ typedef struct snake{
     int tamanho;//tamanho do corpo da cobra
 }snake;
 
-void movimenta__cobra(snake* cobra, char direção);//funçao para captar a tecla digitada e mover a cobra
-void desenha_jogo(snake* cobra);//desenha o mapa do jogo
-void desenha_cobra(snake* cobra);//desenha a cobra 
-int comecobra(snake* cobra, position* comida);//função computa se a cobra comeu ou nao
+void movimenta__cobra(snake*, char);//funçao para captar a tecla digitada e mover a cobra
+void desenha_jogo(snake*);//desenha o mapa do jogo
+void desenha_cobra(snake*);//desenha a cobra 
+int comecobra(snake*, position*);//função computa se a cobra comeu ou nao
+int colisao(snake*);//verifica se a cobra colidiu
 
 #endif //fecha o bloco

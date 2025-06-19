@@ -19,8 +19,8 @@ void movimenta__cobra(snake* cobra, char direcao){//sobre o movimento da cobra
 
 void desenha_jogo(snake* cobra){//sobre o desenho do jogo
     
-    for (int y = 0; y < ALTURA; y++){
-        for(int x = 0; x < LARGURA; x++){
+    for (int y = 0; y < ALTURA; y++){//primeiro for percorre em y
+        for(int x = 0; x < LARGURA; x++){//segundo for percorre em x
            
             if (y == 0 || y == ALTURA - 1){// imprime a primeira linha  e ultima
                 printf("#");
@@ -74,11 +74,20 @@ void desenha_cobra(snake* cobra){//sobre o desenho da cobra
 int comecobra(snake* cobra, position* comida){//verifica se a cobra comeu a comida, se sim retorna um se nao retorna 0
     
     if(cobra->body[0].x == comida->x && cobra->body[0].y == comida->y){ //caso a comida esteja no mesmo local da cobra 
-        cobra->tamanho += 1;
+        cobra->tamanho += 1;//se a cobra comeu a fruta ela cresce 1
         return 1;//retorne 1
     }
 
     return 0;//se nao retorna 0
 }
 
+int colisao(snake* cobra){
+    for(int i = 0; i < cobra->tamanho; i++){
+        if(cobra->body[0].x == cobra->body[i].x && cobra->body[0].x == cobra->body[0].x)//comparo para ver se a cabeça colidiu com o corpo 
+            return 1;
+        }
+    if(cobra->body[0].x <= 0 || cobra->body[0].x >= LARGURA-1 || cobra->body[0].y == 0 || cobra->body[0].y == ALTURA - 1 )//se colidir com as bordas return 1
+        return 1;
 
+    return 0; //caso nao colida return 0  
+}
