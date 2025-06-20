@@ -30,10 +30,10 @@ int main() {
     cobra.tamanho = 3;//define o tamanho da cobra pra 3
     cobra.body[0].x = LARGURA / 2;//coloca a cobra no meio do eixo x
     cobra.body[0].y = ALTURA / 2;//coloca a cobra no meio do eixo y
-    for (int i = 1; i < cobra.tamanho; i++) {//define as posicoes do corpo da cobra
-        cobra.body[i].x = cobra.body[0].x - i;
-        cobra.body[i].y = cobra.body[0].y;
-    }
+    cobra.body[1].x = cobra.body[0].x - 1;
+    cobra.body[1].y = cobra.body[0].y;
+    cobra.body[2].x = cobra.body[0].x - 2;
+    cobra.body[2].y = cobra.body[0].y;
 
     // Gera a primeira comida
     gera_nova_comida(&cobra, &comida);

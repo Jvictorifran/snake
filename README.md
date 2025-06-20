@@ -1,4 +1,14 @@
 # snake
 jogo da "cobrinha" no cmd, em c
 
-implementaçao da funcao andar cobra, em que a cobra tem um for que faz com oque a cobra siga a cabeça, decidi criar uma struct tambem em que vao conter todas as estruturas do game.
+## O jogo funciona, porem falta implementar a funcao das cores da biblioteca "NCURSES.H"
+para compilar segue o comando, podendo mudar de compilador para compilador.
+```
+ gcc funcoes.c main.c -o main
+```
+logo em seguida rode o comando de executar
+```
+./main
+```
+
+lembrando que desse jeito e so para quem usa o gcc

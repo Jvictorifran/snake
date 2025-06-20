@@ -70,7 +70,7 @@ void come__cobra(snake* cobra, position* comida){//verifica se a cobra comeu a c
 int colisao(snake* cobra){
     for(int i = 1; i < cobra->tamanho; i++){
 
-        if(cobra->body[0].x == cobra->body[i].x && cobra->body[0].y == cobra->body[0].y)//comparo para ver se a cabeça colidiu com o corpo 
+        if(cobra->body[0].x == cobra->body[i].x && cobra->body[0].y == cobra->body[i].y)//comparo para ver se a cabeça colidiu com o corpo 
             return 1;
         }
     if(cobra->body[0].x <= 0 || cobra->body[0].x >= LARGURA-1 || cobra->body[0].y == 0 || cobra->body[0].y == ALTURA - 1 )//se colidir com as bordas return 1
