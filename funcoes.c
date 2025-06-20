@@ -9,7 +9,7 @@ void movimenta__cobra(snake* cobra, char direcao){//sobre o movimento da cobra
         return;//se a direçao for espaço, retorna
     }
 
-    switch (direcao) {
+    switch (tolower(direcao)) {
         case 'w': cobra->body[0].y--; break;//caso w mova cobra para cima
         case 's': cobra->body[0].y++; break;//caso s mova cobra para baixo
         case 'a': cobra->body[0].x--; break;//caso a mova a cobra para esquerda
@@ -17,7 +17,7 @@ void movimenta__cobra(snake* cobra, char direcao){//sobre o movimento da cobra
     }
 }
 
-void desenha_jogo(snake* cobra, position* comida){//sobre o desenho do jogo
+void desenha__jogo(snake* cobra, position* comida){//sobre o desenho do jogo
     
     for (int y = 0; y < ALTURA; y++){//primeiro for percorre em y
         for(int x = 0; x < LARGURA; x++){//segundo for percorre em x
@@ -59,23 +59,39 @@ void desenha_jogo(snake* cobra, position* comida){//sobre o desenho do jogo
     
 }
 
-int comecobra(snake* cobra, position* comida){//verifica se a cobra comeu a comida, se sim retorna um se nao retorna 0
+void come__cobra(snake* cobra, position* comida){//verifica se a cobra comeu a comida, se sim retorna um se nao retorna 0
     
     if(cobra->body[0].x == comida->x && cobra->body[0].y == comida->y){ //caso a comida esteja no mesmo local da cobra 
         cobra->tamanho += 1;//se a cobra comeu a fruta ela cresce 1
-        return 1;//retorne 1
+        gera_nova_comida(cobra, comida);
     }
-
-    return 0;//se nao retorna 0
 }
 
 int colisao(snake* cobra){
-    for(int i = 0; i < cobra->tamanho; i++){
-        if(cobra->body[0].x == cobra->body[i].x && cobra->body[0].x == cobra->body[0].x)//comparo para ver se a cabeça colidiu com o corpo 
+    // Verifica colisão da cabeça com o corpo (exceto ela mesma)
+    for(int i = 1; i < cobra->tamanho; i++){
+        if(cobra->body[0].x == cobra->body[i].x && cobra->body[0].y == cobra->body[i].y)
             return 1;
-        }
-    if(cobra->body[0].x <= 0 || cobra->body[0].x >= LARGURA-1 || cobra->body[0].y == 0 || cobra->body[0].y == ALTURA - 1 )//se colidir com as bordas return 1
+    }
+    // Verifica colisão com as bordas
+    if(cobra->body[0].x <= 0 || cobra->body[0].x >= LARGURA-1 || cobra->body[0].y == 0 || cobra->body[0].y == ALTURA - 1 )
         return 1;
 
-    return 0; //caso nao colida return 0  
+    return 0;
+}
+
+void gera_nova_comida(snake *cobra, position* comida) {
+    int valido = 0;
+    while (!valido) {
+        comida->x = rand() % (LARGURA - 2) + 1; // Garante que não fique na borda
+        comida->y = rand() % (ALTURA - 2) + 1;
+        valido = 1;
+        // Verifica se a comida está em cima da cobra
+        for (int i = 0; i < cobra->tamanho; i++) {
+            if (cobra->body[i].x == comida->x && cobra->body[i].y == comida->y) {
+                valido = 0;
+                break;
+            }
+        }
+    }
 }

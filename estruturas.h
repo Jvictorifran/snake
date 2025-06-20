@@ -7,7 +7,9 @@
 
 #include <stdlib.h> 
 #include <stdio.h>
-#include <ncurses.h> //bibilioteca para customizar o terminal
+//#include <ncurses.h> //bibilioteca para customizar o terminal
+#include <ctype.h>
+#include <time.h>// funçao usada para gerar um novo local para comida
 
 //posiçoes do mapa
 typedef struct position{
@@ -21,8 +23,8 @@ typedef struct snake{
 }snake;
 
 void movimenta__cobra(snake*, char);//funçao para captar a tecla digitada e mover a cobra
-void desenha_jogo(snake*, position*);//desenha o mapa do jogo
-int comecobra(snake*, position*);//função computa se a cobra comeu ou nao
+void desenha__jogo(snake*, position*);//desenha o mapa do jogo
+void come__cobra(snake*, position*);//função computa se a cobra comeu ou nao
 int colisao(snake*);//verifica se a cobra colidiu
-
+void gera_nova_comida(snake*, position*);//gera novo local da comida de uma forma aleatoria
 #endif //fecha o bloco
