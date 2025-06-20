@@ -68,16 +68,15 @@ void come__cobra(snake* cobra, position* comida){//verifica se a cobra comeu a c
 }
 
 int colisao(snake* cobra){
-    // Verifica colisão da cabeça com o corpo (exceto ela mesma)
     for(int i = 1; i < cobra->tamanho; i++){
+        // Corrigido: compara X e Y da cabeça com o corpo
         if(cobra->body[0].x == cobra->body[i].x && cobra->body[0].y == cobra->body[i].y)
             return 1;
     }
-    // Verifica colisão com as bordas
     if(cobra->body[0].x <= 0 || cobra->body[0].x >= LARGURA-1 || cobra->body[0].y == 0 || cobra->body[0].y == ALTURA - 1 )
         return 1;
 
-    return 0;
+    return 0; //caso nao colida return 0  
 }
 
 void gera_nova_comida(snake *cobra, position* comida) {
@@ -95,3 +94,4 @@ void gera_nova_comida(snake *cobra, position* comida) {
         }
     }
 }
+

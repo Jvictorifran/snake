@@ -27,10 +27,10 @@ int main() {
     int gameover = 0;
 
     // Inicializa a cobra no centro do tabuleiro
-    cobra.tamanho = 3;
-    cobra.body[0].x = LARGURA / 2;
-    cobra.body[0].y = ALTURA / 2;
-    for (int i = 1; i < cobra.tamanho; i++) {
+    cobra.tamanho = 3;//define o tamanho da cobra pra 3
+    cobra.body[0].x = LARGURA / 2;//coloca a cobra no meio do eixo x
+    cobra.body[0].y = ALTURA / 2;//coloca a cobra no meio do eixo y
+    for (int i = 1; i < cobra.tamanho; i++) {//define as posicoes do corpo da cobra
         cobra.body[i].x = cobra.body[0].x - i;
         cobra.body[i].y = cobra.body[0].y;
     }
@@ -40,13 +40,12 @@ int main() {
 
     while (!gameover) {
         system("clear"); // Limpa a tela no Mac/Linux
-        desenha__jogo(&cobra, &comida);
+        desenha__jogo(&cobra, &comida);//desenha o jogo
 
-        printf("Direção (WASD): ");
-        direcao = getch();
-        printf("%c\n", direcao); // Mostra a tecla pressionada (opcional)
+        printf("Direção (WASD): ");//pede pro usuario digitar a tecla
+        direcao = getch();//captura a tecla sem enter
 
-        movimenta__cobra(&cobra, direcao);
+        movimenta__cobra(&cobra, direcao);//movimenta cobra
 
         // Usa a função para tratar se a cobra comeu a comida
         come__cobra(&cobra, &comida);
@@ -57,6 +56,6 @@ int main() {
         }
     }
 
-    printf("Game Over!\n");
-    return 0;
+    printf("Game Over!\n");//mostra o game over na tela
+    return 0;//encerrando o programa
 }
