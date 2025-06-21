@@ -31,13 +31,13 @@ void desenha__jogo(snake* cobra, position* comida){//sobre o desenho do jogo
                 int desenhou = 0;//variavel de controle
                 
                 if(cobra->body[0].x == x && cobra->body[0].y == y){//verifica a cabeça da cobra
-                    printf("O");//printando a cabeça da cobra
+                    printf("O");
                     desenhou = 1;
                 }
                 else{//desenha o corpo da cobrra
                     for(int i = 1; i < cobra->tamanho; i++){
                         if(cobra->body[i].x == x && cobra->body[i].y == y){//verifica se o corpo esta naquele local
-                            printf("o");//printando o corpo 
+                            printf("o");
                             desenhou = 1;
                             break;
                             

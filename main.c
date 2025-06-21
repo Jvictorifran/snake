@@ -6,7 +6,7 @@
 #include "estruturas.h"
 
 // Função para capturar tecla sem precisar de Enter
-char getch() {
+char captar() {
     struct termios oldt, newt;
     char c;
     tcgetattr(STDIN_FILENO, &oldt);
@@ -19,8 +19,6 @@ char getch() {
 }
 
 int main() {
-    srand(time(NULL));
-
     snake cobra;
     position comida;
     char direcao = 'd'; // Começa indo para a direita
@@ -43,7 +41,7 @@ int main() {
         desenha__jogo(&cobra, &comida);//desenha o jogo
 
         printf("Direção (WASD): ");//pede pro usuario digitar a tecla
-        direcao = getch();//captura a tecla sem enter
+        direcao = captar();//captura a tecla sem enter
 
         movimenta__cobra(&cobra, direcao);//movimenta cobra
 

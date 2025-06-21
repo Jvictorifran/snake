@@ -3,7 +3,7 @@
 
 #define MAX 100 //tamanho maximo da cobra
 #define ALTURA 20 //altura do campo do jogo (mapa)
-#define LARGURA 30// largura do campo do jogo (mapa)
+#define LARGURA 80// largura do campo do jogo (mapa)
 
 #include <stdlib.h> 
 #include <stdio.h>
